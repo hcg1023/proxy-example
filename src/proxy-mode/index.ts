@@ -1,9 +1,14 @@
-class Person {
+interface IPerson {
+  name: string
+  age: number
+}
+
+class Person implements IPerson {
   constructor(public name: string, public age: number) {}
 }
 
 // 对象代理，通过一个新对象，对源对象的操作进行劫持
-export class ProxyPerson {
+export class ProxyPerson implements IPerson {
   private _person: Person;
   constructor(name: string, age: number) {
     this._person = new Person(name, age);
