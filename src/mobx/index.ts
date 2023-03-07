@@ -90,3 +90,9 @@ export function observable<T extends object>(obj: T): T {
     },
   });
 }
+
+const arr = []
+arr.push(1)
+const oldLength = arr.length
+arr[arr.length] = 1
+arr.length = oldLength

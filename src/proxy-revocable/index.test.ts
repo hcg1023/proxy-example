@@ -1,7 +1,9 @@
 import { describe, expect, test } from 'vitest';
 
 describe('', () => {
-  const revocable = Proxy.revocable({} as Record<string, any>, {
+  const target = {} as Record<string, any>
+
+  const revocable = Proxy.revocable(target, {
     get(_target, name) {
       return name;
     },

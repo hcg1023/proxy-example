@@ -44,5 +44,6 @@ describe('validated object', () => {
     expect(() => ((obj as any).age = '1')).toThrowError();
     expect(warn.mock.calls.length).toBe(1);
     expect(warn.mock.calls[0][0]).toBe(`property: 'age' is not a number`);
+    expect(obj.age).toBe(15)
   });
 });

@@ -27,6 +27,10 @@ describe('test sandbox', () => {
             globalThis.a = 123;
             log(globalThis.a);
             log(a);
+            
+            var b = []
+            c = []
+            log(globalThis.c === c);
         `,
       {
         log,
@@ -84,5 +88,6 @@ describe('test sandbox', () => {
     )();
     expect(warn.mock.calls.length).toBe(1);
     expect(warn.mock.calls[0]).toEqual([`context object property: 'flag' can't delete`]);
+    expect(contextObject.flag).toBe(1)
   });
 });

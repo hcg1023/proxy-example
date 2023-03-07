@@ -12,8 +12,8 @@ describe('test oc', () => {
 
     expect(oc(obj).mockFn()!()).toBe('mock');
     expect(oc(obj).mockFn()!.flag).toBe(1);
-    expect(oc(obj).mockFn.flag()).toBe(undefined); // undefined
-    // expect(oc(obj).mockFn.flag()).toBe(1) // 1
+    // expect(oc(obj).mockFn.flag()).toBe(undefined); // undefined
+    expect(oc(obj).mockFn.flag()).toBe(1) // 1
   });
 
   test('oc call function', () => {
@@ -22,7 +22,7 @@ describe('test oc', () => {
     const mockFn = vi.fn() as Mock<any, any> & { flag: number };
     mockFn.flag = 1;
 
-    expect(oc(mockFn).flag()).toBe(undefined);
-    // expect(oc(mockFn).flag()).toBe(1)
+    // expect(oc(mockFn).flag()).toBe(undefined);
+    expect(oc(mockFn).flag()).toBe(1)
   });
 });
